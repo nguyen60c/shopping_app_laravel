@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->longText('description')->nullable();
             $table->decimal('price', 15, 2)->nullable();
             $table->unsignedBigInteger('created_by_id')->nullable();
+            $table->foreign('created_by_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });
